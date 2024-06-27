@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSRP Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
+  </style>
+      <style>
+        .error {
+            border-color: red;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+            margin-top: 0.2em;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            localStorage.setItem('formStartTime', Date.now());
+            checkTime();
+        }
+
+        function checkTime() {
+            const startTime = localStorage.getItem('formStartTime');
+            const currentTime = Date.now();
+            const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+
+            if (elapsedTime > 300) { // 300 seconds = 5 minutes
+                window.location.href = 'index.html';
+            } else {
+                setTimeout(checkTime, 1000);
+            }
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            checkTime();
+        }
+
+        function checkTime() {
+            const startTime = localStorage.getItem('formStartTime');
+            const currentTime = Date.now();
+            const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+
+            if (elapsedTime > 300) { // 300 seconds = 5 minutes
+                window.location.href = 'index.html';
+            } else {
+                setTimeout(checkTime, 1000);
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+<header class="bg-sky-100 shadow p-4 hidden md:block">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-xl font-bold border-solid border-2 p-1 border-black">BOOK-MY-HSRP</div>
+        <div>
+            <a href="#" class="text-blue-500"><img src="assets/img1.png" alt="Logo" class="h-10 w-30 mr-2 "></a>
+        </div>
+    </div>
+</header>
+  <!-- <header class="bg-sky-100 shadow py-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-xl font-bold border-solid border-2 p-1 border-black">BOOK-MY-HSRP</div>
+      <div class="">
+        <a href="#" class="text-blue-500"><img src="assets/img1.png" alt="Logo" class="h-10 w-30 mr-2 "></a>
+      </div>
+    </div>
+  </header> -->
+
+
+    <!-- Navbar -->
+    <nav class="bg-white py-4 shadow-inner">
+        <div class="container mx-auto gap-8 flex flex-col md:flex-row md:justify-between items-center">
+            <div class="flex justify-between w-full md:w-auto">
+                <a href="#" class="text-gray-600 font-bold flex items-center">
+                    <img src="assets/icon_logo.png" alt="Logo" class="h-12 w-12 m-4 rounded-full">
+                    <div class="md:hidden">
+                        Corporate Profile
+                    </div>
+                </a>
+                <button id="nav-toggle" class="md:hidden text-gray-600 focus:outline-none" onclick="toggleMenu()">
+                    <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="nav-menu" class="hidden md:flex flex-col gap-5 md:flex-row md:items-center w-full md:w-auto">
+                <a href="/trackyourorderform.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Track Your Order</a>
+                <a href="/rescheduleappointment.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Reschedule Appointment</a>
+                <a href="/cancelorder.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Cancel Order</a>
+                <a href="homeinstallation.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Check For Home Installation</a>
+                <a href="receiptvalidity.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Receipt Validity</a>
+                <a href="contactus.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Contact Us</a>
+                <a href="index.html" class="text-gray-600 mb-2 md:mb-0 flex items-center">
+                    <img src="assets/img3.jpg" alt="Login" class="h-10 w-10 mr-2 rounded-full">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="fixed rounded-lg left-0 h-full w-2/3 bg-white shadow-md transform -translate-x-full transition-transform duration-300">
+        <div id="nav-menu" class="flex h-full flex-col justify-center items-center ">
+            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Track Your Order</a>
+            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Reschedule Appointment</a>
+            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Cancel Order</a>
+            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Check For Home Installation</a>
+            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Receipt Validity</a>
+            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Contact Us</a>
+            <!-- <a href="#" class="text-gray-600 mb-2 md:mb-0 flex items-center">
+                <img src="assets/img3.jpg" alt="Login" class="h-10 w-10 mr-2 rounded-full">
+            </a> -->
+        </div>
+    </div>
+
+
+<!-- banner -->
+ <div class="bg-Neutral-400 h-20"> 
+    <img src="assets/img2.jpg" alt="banner_image" class="w-full h-20">
+ </div>
+<!-- banner end -->
+
+  <!-- Main Content -->
+<div class="container mx-auto my-10 p-10 w-auto bg-blue-200 shadow-lg rounded-lg">
+    <div class=" flex flex-col md:flex-row">
+        <!-- <div class="md:w-1/2">
+            <img src="path/to/your/image.png" alt="HSRP" class="w-full h-auto rounded-lg">
+        </div> -->
+        <div class=" mt-5 ">
+        <!-- <div class="w-full"> -->
+
+            <h1 class="text-2xl font-bold mb-4">Shipping Details / शिपिंग विवरण <br> <span class="text-xl text-gray-600">ऑनलाइन बनवाये</span></h1>
+            
+            <!-- Form -->
+            <form id="formtwo" class="space-y-4">
+                <div class="mb-4">
+                    <label for="vehicle-registration" class="block text-gray-700">Vehicle Registration Number / वाहन पंजीकरण संख्या*</label>
+                    <input type="text" id="vehicle-registration" class="w-full  px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="owner-name" class="block text-gray-700">Full Name / पूरा नाम*</label>
+                    <input type="text" id="owner-name" class="w-full  px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <span id="owner-name-error" class="error-message"></span>
+                    
+                </div>
+                <div class="mb-4">
+                    <label for="mobile-number" class="block text-gray-700">Mobile No.*</label>
+                    <input type="tel" id="mobile-number" class="w-full  px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <span id="mobile-number-error" class="error-message"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="email-id" class="block text-gray-700">Email Id.*</label>
+                    <input type="email" id="email-id" class="w-full  px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <span id="email-id-error" class="error-message"></span>
+                </div>
+
+
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="houseNo">House/Building No / घर / बिल्डिंग संख्या*</label>
+                    <input type="text" id="houseNo" name="houseNo" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="areaLocality">Area/Locality / क्षेत्र / स्थान</label>
+                    <input type="text" id="areaLocality" name="areaLocality" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="district">District / जिला*</label>
+                    <input type="text" id="district" name="district" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="pinCode">Pin Code / पिन कोड*</label>
+                    <input type="text" id="pinCode" name="pinCode" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700" for="state">State / राज्य *</label>
+                    <select id="state" name="state" class="w-full px-4 py-2 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>--Select State--</option>
+                        <!-- Add options here -->
+                    </select>
+                </div>                    
+                <div class="flex w-full justify-between">
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none">Next: Shipping Details / अगला: शिपिंग विवरण</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  <!-- Bootlm footer -->
+
+  <div class="bg-white p-4 py-4">
+    <div class="container mx-auto">
+      <div class="flex justify-center flex-wrap gap-10">
+        
+        <a href="https://rosmertatech.com/" target="_blank" class="scale-150 mt-0.5">
+          <img src="assets/footerimg1.png" alt="Rosmerta Tech Logo" class="h-6">
+        </a>
+
+        <a href="https://sensorise.net/" target="_blank">
+          <img src="assets/footerimg2.png" alt="Sensorise Logo" class="h-6">
+        </a>
+
+        <a href="https://myraasta.in/" target="_blank">
+          <img src="assets/footerimg3.png" alt="My Raasta Logo" class="h-6">
+        </a>
+
+        <a href="https://rosmertadigital.com/Login.aspx" target="_blank">
+          <img src="assets/footerimg4.png" alt="Rosmerta Digital Logo" class="h-6">
+        </a>
+
+        <a href="https://addblue.rosmertaroadsafety.com/" target="_blank">
+          <img src="assets/footerimg5.png" alt="Rosblu Logo" class="h-6">
+        </a>
+
+        <a href="#" target="_blank">
+          <img src="assets/footerimg6.png" alt="Rosmerta Recycling Logo" class="h-6">
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 py-4 p-4 shadow-inner">
+    <div class="container mx-auto gap-1 flex flex-col md:flex-row md:justify-around text-sm">
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">FAQ</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Privacy Policy</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Refund & Cancellation Policy</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Safe & Secure Transaction</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Terms & Conditions</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Government Notifications</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">About HSRP</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Grievance Redressal</a>
+      <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Reprint Receipt</a>
+    </div>
+  </footer>
+
+
+
+
+<script>
+    function toggleMenu() {
+        console.log("toggle clicked")
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('-translate-x-full');
+        menu.classList.toggle('translate-x-0');
+    }
+</script>
+
+<!-- script for validation -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function showError(input, message) {
+            const errorSpan = document.getElementById(input.id + '-error');
+            errorSpan.textContent = message;
+            input.classList.add('error');
+        }
+    
+        function clearError(input) {
+            const errorSpan = document.getElementById(input.id + '-error');
+            errorSpan.textContent = '';
+            input.classList.remove('error');
+        }
+    
+        document.getElementById('owner-name').addEventListener('input', function(e) {
+            let input = e.target;
+            let value = input.value.trim();
+            
+            // Prevent numbers in the name
+            value = value.replace(/[0-9]/g, '');
+            input.value = value;
+    
+            // Capitalize the input
+            input.value = input.value.charAt(0).toUpperCase() + input.value.slice(1);
+    
+            const isValid = /^[A-Z]+$/.test(value);
+            if (!isValid) {
+                showError(input, 'Please enter only uppercase letters.');
+            } else {
+                clearError(input);
+            }
+        });
+    
+        document.getElementById('mobile-number').addEventListener('input', function(e) {
+            const input = e.target;
+            let value = input.value.trim();
+            
+            // Limit to 10 digits
+            if (value.length > 10) {
+                value = value.slice(0, 10);
+                input.value = value;
+            }
+    
+            const isValid = /^\d{10}$/.test(value);
+            if (!isValid) {
+                showError(input, 'Please enter a valid Indian mobile number');
+            } else {
+                clearError(input);
+            }
+        });
+    
+        document.getElementById('email-id').addEventListener('input', function(e) {
+            const input = e.target;
+            const value = input.value.trim();
+            const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            if (!isValid) {
+                showError(input, 'Please enter a valid email address.');
+            } else {
+                clearError(input);
+            }
+        });
+    
+        document.getElementById('formtwo').addEventListener('submit', function(e) {
+            const ownerName = document.getElementById('owner-name');
+            const mobileNumber = document.getElementById('mobile-number');
+            const emailId = document.getElementById('email-id');
+    
+            if (ownerName.classList.contains('error') || mobileNumber.classList.contains('error') || emailId.classList.contains('error')) {
+                e.preventDefault();
+                alert('Please correct the errors in the form.');
+            } else {
+                e.preventDefault(); // Prevent the default form submission
+                submitForm(); // Redirect to formtwo.html
+            }
+        });
+    
+        function submitForm() {
+            console.log("redirecting to next page")
+            window.location.href = "/bookformthree.html";
+        }
+    });
+    </script>
+
+</body>
+</html>

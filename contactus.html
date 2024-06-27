@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white py-4 shadow-inner">
+            <div class="flex mx-auto gap-4">
+                <div>
+                    <a href="/index.html" class="text-blue-500"><img src="assets/img2.png" alt="Logo" class="h-8 w-30 mr-2 "></a>
+                </div>
+                <div class="hidden lg:flex">
+                    <div>
+                        <a href="/index.html" class="text-blue-500"><img src="assets/img1.png" alt="Logo" class="h-8 w-30 mr-2 "></a>
+                    </div>
+                    <div>
+                        <a href="/index.html" class="text-blue-500"><img src="assets/img-3.jpg" alt="Logo" class="h-10 w-30 mr-2 "></a>
+                    </div>
+                </div>
+
+                <div id="nav-menu" class="hidden lg:flex flex-col gap-5 lg:flex-row lg:items-center w-full mx-auto lg:w-auto">
+                  <a href="trackyourorderform.html" class="text-gray-600 mb-2 md:mb-0 font-med ">Track Your Order</a>
+                  <a href="/rescheduleappointment.html" class="text-gray-600 mb-2 md:mb-0 font-med ">Reschedule Appointment</a>
+                  <a href="/cancelorder.html" class="text-gray-600 mb-2 md:mb-0 font-med ">Cancel Order</a>
+                  <a href="/homeinstallation.html" class="text-gray-600 mb-2 md:mb-0 font-med ">Check For Home Installation</a>
+                  <a href="/receiptvalidity.html" class="text-gray-600 mb-2 md:mb-0 font-med ">Receipt Validity</a>
+                  <a href="/contactus.html" class="text-gray-600 mb-2 md:mb-0 font-med ">Contact Us</a>
+              </div>
+            </div>
+        </div>
+    </nav>
+
+
+  <!-- Main Content -->
+  <div class="bg-cover bg-center bg-no-repeat" style="background-image: url('assets/form-bg.png');"> 
+    <div class="font-black flex justify-center">Contact US</div >
+      <main class="container mx-auto flex my-16 ">
+        <body class="bg-blue-100 p-8"> 
+
+            <div class="bg-white p-6 rounded-lg shadow-md max-w-sm mx-auto">
+              <h2 class="text-2xl font-semibold mb-4">General Enquiry</h2>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md max-w-sm mx-auto">
+                <h2 class="text-2xl font-semibold mb-4">Grievance</h2>
+              
+
+              </div>
+      </main>
+    </div>
+
+  <!-- Bootlm footer -->
+
+  <!-- Footer -->
+  <footer class="bg-white py-4 mt-auto shadow-inner">
+    <div class="container mx-auto bg-white flex flex-col md:flex-row md:justify-around text-sm">
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">FAQ</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Privacy Policy</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Refund & Cancellation Policy</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Safe & Secure Transaction</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Terms & Conditions</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Government Notifications</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">About HSRP</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Grievance Redressal</a>
+      <a href="#" class="text-black mb-2 font-bold md:mb-0">Reprint Receipt</a>
+    </div>
+  </footer>
+
+
+<script>
+    // JavaScript for toggle button
+    document.getElementById('nav-toggle').onclick = function() {
+        var navMenu = document.getElementById('nav-menu');
+        if (navMenu.classList.contains('hidden')) {
+            navMenu.classList.remove('hidden');
+        } else {
+            navMenu.classList.add('hidden');
+        }
+    };
+</script> 
+
+
+
+
+
+
+
+
+</body>
+</html>

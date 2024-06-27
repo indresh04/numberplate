@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar with Tailwind CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="h-screen bg-gray-900 text-white w-64">
+            <div class="p-4">
+                <h1 class="text-2xl font-semibold">Dashboard</h1>
+            </div>
+            <ul class="mt-6 space-y-2">
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6h6v13m4 0a1 1 0 001-1V7a1 1 0 00-1-1h-3.38a1 1 0 00-.894.553L12 11m0 0L8.38 6.553A1 1 0 007.486 6H4a1 1 0 00-1 1v11a1 1 0 001 1h16z"></path>
+                        </svg>
+                        <span class="ml-3">Posts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18v4H3V3zM3 13h18v4H3v-4zM7 9v8m10-8v8"></path>
+                        </svg>
+                        <span class="ml-3">Media</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5V4H2v16h15z"></path>
+                        </svg>
+                        <span class="ml-3">Pages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.55 1.14a1 1 0 010 1.72L15 14m-3-3v3a3 3 0 01-6 0V9m-3 6h.01M21 12h-.01"></path>
+                        </svg>
+                        <span class="ml-3">Comments</span>
+                        <span class="ml-auto bg-gray-700 text-xs font-semibold px-2 py-0.5 rounded-full">1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.55 1.14a1 1 0 010 1.72L15 14m-3-3v3a3 3 0 01-6 0V9m-3 6h.01M21 12h-.01"></path>
+                        </svg>
+                        <span class="ml-3">Appearance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 0a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2m12 0V8a2 2 0 00-2-2h-1a1 1 0 01-1-1V4a1 1 0 00-1-1H9a1 1 0 00-1 1v1a1 1 0 01-1 1H6a2 2 0 00-2 2v4m12 0h2"></path>
+                        </svg>
+                        <span class="ml-3">Plugins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 2.21-1.79 4-4 4S4 13.21 4 11 5.79 7 8 7s4 1.79 4 4zm0 0c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4zm8 8v-4a4 4 0 00-4-4H8a4 4 0 00-4 4v4"></path>
+                        </svg>
+                        <span class="ml-3">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <span class="ml-3">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-300 hover:bg-gray-700 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                        <span class="ml-3">Tools</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <!-- Add your main content here -->
+        </div>
+    </div>
+</body>
+</html>
