@@ -14,54 +14,70 @@
     main {
       flex: 1;
     }
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 15s linear infinite;
+}
+
   </style>
-      <style>
-        .error {
-            border-color: red;
-        }
-        .error-message {
-            color: red;
-            font-size: 0.8em;
-            margin-top: 0.2em;
-        }
-    </style>
-    <script>
-        window.onload = function() {
-            localStorage.setItem('formStartTime', Date.now());
-            checkTime();
-        }
 
-        function checkTime() {
-            const startTime = localStorage.getItem('formStartTime');
-            const currentTime = Date.now();
-            const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+<style>
+    .error {
+        border-color: red;
+    }
+    .error-message {
+        color: red;
+        font-size: 0.8em;
+        margin-top: 0.2em;
+    }
+</style>
+<script>
+    window.onload = function() {
+        localStorage.setItem('formStartTime', Date.now());
+        checkTime();
+    }
 
-            if (elapsedTime > 300) { // 300 seconds = 5 minutes
-                window.location.href = 'index.html';
-            } else {
-                setTimeout(checkTime, 1000);
-            }
-        }
-    </script>
-    <script>
-        window.onload = function() {
-            checkTime();
-        }
+    function checkTime() {
+        const startTime = localStorage.getItem('formStartTime');
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - startTime) / 1000; // in seconds
 
-        function checkTime() {
-            const startTime = localStorage.getItem('formStartTime');
-            const currentTime = Date.now();
-            const elapsedTime = (currentTime - startTime) / 1000; // in seconds
-
-            if (elapsedTime > 300) { // 300 seconds = 5 minutes
-                window.location.href = 'index.html';
-            } else {
-                setTimeout(checkTime, 1000);
-            }
+        if (elapsedTime > 300) { // 300 seconds = 5 minutes
+            window.location.href = 'index.html';
+        } else {
+            setTimeout(checkTime, 1000);
         }
-    </script>
+    }
+</script>
+<script>
+    window.onload = function() {
+        checkTime();
+    }
+
+    function checkTime() {
+        const startTime = localStorage.getItem('formStartTime');
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+
+        if (elapsedTime > 300) { // 300 seconds = 5 minutes
+            window.location.href = 'index.html';
+        } else {
+            setTimeout(checkTime, 1000);
+        }
+    }
+</script>
+
 </head>
-<body class="bg-blue-200">
+<body class="bg-gray-100">
 
   <!-- Header -->
 <header class="bg-sky-100 shadow p-4 hidden md:block">
@@ -72,15 +88,6 @@
         </div>
     </div>
 </header>
-  <!-- <header class="bg-sky-100 shadow py-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <div class="text-xl font-bold border-solid border-2 p-1 border-black">BOOK-MY-HSRP</div>
-      <div class="">
-        <a href="#" class="text-blue-500"><img src="assets/img1.png" alt="Logo" class="h-10 w-30 mr-2 "></a>
-      </div>
-    </div>
-  </header> -->
-
 
     <!-- Navbar -->
     <nav class="bg-white py-4 shadow-inner">
@@ -88,15 +95,20 @@
             <div class="flex justify-between w-full md:w-auto">
                 <a href="#" class="text-gray-600 font-bold flex items-center">
                     <img src="assets/icon_logo.png" alt="Logo" class="h-12 w-12 m-4 rounded-full">
-                    <div class="md:hidden">
-                        Corporate Profile
+                    <div class="md:hidden flex flex-row">
+                        <div class="text-2xl">HSRP PLATE</div>
                     </div>
                 </a>
-                <button id="nav-toggle" class="md:hidden text-gray-600 focus:outline-none" onclick="toggleMenu()">
-                    <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
+                <div class="md:hidden flex items-center">
+                  <button id="menu-btn" class="text-gray-700 mr-2 focus:outline-none">
+                      <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                      </svg>
+                      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                  </button>
+              </div>
             </div>
             <div id="nav-menu" class="hidden md:flex flex-col gap-5 md:flex-row md:items-center w-full md:w-auto">
                 <a href="/trackyourorderform.html" class="text-gray-600 mb-2 md:mb-0 font-bold ">Track Your Order</a>
@@ -112,28 +124,19 @@
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed rounded-lg left-0 h-full w-2/3 bg-white shadow-md transform -translate-x-full transition-transform duration-300">
-        <div id="nav-menu" class="flex h-full flex-col justify-center items-center ">
-            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Track Your Order</a>
-            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Reschedule Appointment</a>
-            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Cancel Order</a>
-            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Check For Home Installation</a>
-            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Receipt Validity</a>
-            <a href="#" class="text-gray-600 mb-2 md:mb-0 font-bold ">Contact Us</a>
-            <!-- <a href="#" class="text-gray-600 mb-2 md:mb-0 flex items-center">
-                <img src="assets/img3.jpg" alt="Login" class="h-10 w-10 mr-2 rounded-full">
-            </a> -->
-        </div>
-    </div>
 
 
-<!-- banner -->
- <div class="bg-Neutral-400 h-20"> 
-    <img src="assets/img2.jpg" alt="banner_image" class="w-full h-20">
- </div>
-<!-- banner end -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a href="/index.html"  class="block text-gray-700 hover:text-blue-500 px-4 py-2">Home</a>
+      <a href="/trackyourorderform.html" class="block text-gray-700 hover:text-blue-500 px-4 py-2">Track Your Order</a>
+      <a href="/rescheduleappointment.html" class="block text-gray-700 hover:text-blue-500 px-4 py-2">Reschedule Appointment</a>
+      <a href="/cancelorder.html" class="block text-gray-700 hover:text-blue-500 px-4 py-2">Cancel Order</a>
+      <a href="homeinstallation.html" class="block text-gray-700 hover:text-blue-500 px-4 py-2">Check For Home Installation</a>
+      <a href="receiptvalidity.html" class="block text-gray-700 hover:text-blue-500 px-4 py-2">Receipt Validity</a>
+      <a href="contactus.html" class="block text-gray-700 hover:text-blue-500 px-4 py-2">Contact Us</a>
 
-  <!-- Main Content -->
+  </div>
+
     <!-- Main Content -->
     <div class="container mx-auto min-h-80 p-5 bg-blue-200 rounded-lg">
         <div class=" flex flex-col md:flex-row">
@@ -183,43 +186,38 @@
         </div>
     </div>
 
-  <!-- Bootlm footer -->
 
-  <div class="bg-white p-4 py-4">
-    <div class="container mx-auto">
-      <div class="flex justify-center flex-wrap gap-10">
-        
-        <a href="https://rosmertatech.com/" target="_blank" class="scale-150 mt-0.5">
-          <img src="assets/footerimg1.png" alt="Rosmerta Tech Logo" class="h-6">
-        </a>
-
-        <a href="https://sensorise.net/" target="_blank">
-          <img src="assets/footerimg2.png" alt="Sensorise Logo" class="h-6">
-        </a>
-
-        <a href="https://myraasta.in/" target="_blank">
-          <img src="assets/footerimg3.png" alt="My Raasta Logo" class="h-6">
-        </a>
-
-        <a href="https://rosmertadigital.com/Login.aspx" target="_blank">
-          <img src="assets/footerimg4.png" alt="Rosmerta Digital Logo" class="h-6">
-        </a>
-
-        <a href="https://addblue.rosmertaroadsafety.com/" target="_blank">
-          <img src="assets/footerimg5.png" alt="Rosblu Logo" class="h-6">
-        </a>
-
-        <a href="#" target="_blank">
-          <img src="assets/footerimg6.png" alt="Rosmerta Recycling Logo" class="h-6">
-        </a>
-
+<footer class="relative bg-blue-900 text-white">
+  <div class="relative overflow-hidden w-full bg-blue-900">
+      <div class="marquee bg-white p-4 py-4">
+          <div class="container mx-auto overflow-hidden">
+              <div class="marquee-content flex justify-around mx-auto sm:min-w-0 min-w-max gap-10">
+                  <a href="https://rosmertatech.com/" target="_blank" class="flex items-center">
+                      <img src="assets/footerimg1.png" alt="Rosmerta Tech Logo" class="w-auto h-6">
+                  </a>
+                  <a href="https://sensorise.net/" target="_blank" class="flex items-center">
+                      <img src="assets/footerimg2.png" alt="Sensorise Logo" class="w-auto h-6">
+                  </a>
+                  <a href="https://myraasta.in/" target="_blank" class="flex items-center">
+                      <img src="assets/footerimg3.png" alt="My Raasta Logo" class="w-auto h-6">
+                  </a>
+                  <a href="https://rosmertadigital.com/Login.aspx" target="_blank" class="flex items-center">
+                      <img src="assets/footerimg4.png" alt="Rosmerta Digital Logo" class="w-auto h-6">
+                  </a>
+                  <a href="https://addblue.rosmertaroadsafety.com/" target="_blank" class="flex items-center">
+                      <img src="assets/footerimg5.png" alt="Rosblu Logo" class="w-auto h-6">
+                  </a>
+                </a>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
+</footer>
+
 
   <!-- Footer -->
   <footer class="bg-blue-600 py-4 p-4 shadow-inner">
-    <div class="container mx-auto gap-1 flex flex-col md:flex-row md:justify-around text-sm">
+    <div class="container mx-auto gap-3 flex flex-row flex-wrap justify-around text-sm">
       <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">FAQ</a>
       <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Privacy Policy</a>
       <a href="#" class="text-white text-gray-600 mb-2 md:mb-0">Refund & Cancellation Policy</a>
@@ -233,71 +231,21 @@
   </footer>
 
 
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
 
-
-<script>
-    function toggleMenu() {
-        console.log("toggle clicked")
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('-translate-x-full');
-        menu.classList.toggle('translate-x-0');
-    }
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
 </script>
 
-<!-- script for validation -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function showError(input, message) {
-            const errorSpan = document.getElementById(input.id + '-error');
-            errorSpan.textContent = message;
-            input.classList.add('error');
-        }
-    
-        function clearError(input) {
-            const errorSpan = document.getElementById(input.id + '-error');
-            errorSpan.textContent = '';
-            input.classList.remove('error');
-        }
-    
-    
-        document.getElementById('mobile-number').addEventListener('input', function(e) {
-            const input = e.target;
-            let value = input.value.trim();
-            
-            // Limit to 10 digits
-            if (value.length > 10) {
-                value = value.slice(0, 10);
-                input.value = value;
-            }
-    
-            const isValid = /^\d{10}$/.test(value);
-            if (!isValid) {
-                showError(input, 'Please enter a valid Indian mobile number');
-            } else {
-                clearError(input);
-            }
-        });
-    
-    
-        document.getElementById('myForm').addEventListener('submit', function(e) {
-            const ownerName = document.getElementById('owner-name');
-            const mobileNumber = document.getElementById('mobile-number');
-            const emailId = document.getElementById('email-id');
-    
-            if (ownerName.classList.contains('error') || mobileNumber.classList.contains('error') || emailId.classList.contains('error')) {
-                e.preventDefault();
-                alert('Please correct the errors in the form.');
-            } else {
-                e.preventDefault(); // Prevent the default form submission
-                submitForm(); // Redirect to formtwo.html
-            }
-        });
-    
-        function submitForm() {
-            window.location.href = "/formtwo.html";
-        }
-    });
-    </script>
+
+
 
 </body>
 </html>
